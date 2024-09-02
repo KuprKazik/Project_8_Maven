@@ -39,13 +39,11 @@ public class StatsService {
 
     public int lowerThanAverageSales(long[] sales) {
         int count = 0;
-        int lowMonths = 0;
-        long average = getSumSales(sales) / sales.length;
+        long average = getAverageSales(sales);
 
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < average) {
                 count++;
-                lowMonths = i;
             }
         }
         return count;
@@ -53,13 +51,11 @@ public class StatsService {
 
     public int higherThanAverageSales(long[] sales) {
         int count = 0;
-        int highMonths = 0;
-        long average = getSumSales(sales) / sales.length;
+        long average = getAverageSales(sales);
 
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > average) {
                 count++;
-                highMonths = i;
             }
         }
         return count;

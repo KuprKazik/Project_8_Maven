@@ -11,8 +11,7 @@ public class StatsService {
     }
 
     public long getAverageSales(long[] sales) {
-        long averageSales = getSumSales(sales) / sales.length;
-        return averageSales;
+        return getSumSales(sales) / sales.length;
     }
 
     public int maxSales(long[] sales) {
@@ -41,8 +40,10 @@ public class StatsService {
     public int lowerThanAverageSales(long[] sales) {
         int count = 0;
         int lowMonths = 0;
+        long average = getSumSales(sales) / sales.length;
+
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] < getAverageSales(sales)) {
+            if (sales[i] < average) {
                 count++;
                 lowMonths = i;
             }
@@ -53,8 +54,10 @@ public class StatsService {
     public int higherThanAverageSales(long[] sales) {
         int count = 0;
         int highMonths = 0;
+        long average = getSumSales(sales) / sales.length;
+
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] > getAverageSales(sales)) {
+            if (sales[i] > average) {
                 count++;
                 highMonths = i;
             }
